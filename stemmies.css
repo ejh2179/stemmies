@@ -1,0 +1,36 @@
+.container {
+	text-align: center;
+}
+
+.mentor {
+	height: 200px;
+	width: 200px;
+}
+
+#imageBank {
+	display: inline-block;
+	height: 200px;
+	width: 75%;
+	border: solid;
+	margin: 15px;
+}
+
+.image {
+	display: inline-block;
+}
+
+#playArea {
+	display: inline-block;
+	height: 400px;
+	width: 75%;
+	border: solid;
+	margin: 15px;
+}
+
+#laboratory {
+	display: inline-block;
+	height: 200px;
+	width: 20%;
+	border: solid;
+	margin: 15px;
+}
