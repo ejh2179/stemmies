@@ -17,11 +17,12 @@
 
 .image {
 	display: inline-block;
+	z-index: 1;
 }
 
 #playArea {
 	display: inline-block;
-	height: 400px;
+	height: 200px;
 	width: 75%;
 	border: solid;
 	margin: 15px;
@@ -33,4 +34,5 @@
 	width: 20%;
 	border: solid;
 	margin: 15px;
+	z-index:-1;
 }
