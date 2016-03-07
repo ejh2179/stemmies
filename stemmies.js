@@ -6,14 +6,24 @@ $(document).ready(function() {
 	$('#laboratory').droppable({
 		accept: '.image', // specify as drop zone for immages
 		drop: function(event,ui) {
-			console.log("event",event);
-			console.log("ui",ui);
-			console.log(ui.draggable.context.id);
+			console.log("drop event",event);
+			console.log("drop ui",ui);
+			console.log("drop dragged:", ui.draggable.context.id);
 			items.push(ui.draggable.context.id); // add new item to list
+			$("#" + ui.draggable.context.id).draggable( "option", "revert", false );
 			$.unique(items); // get rid of duplicates
 			console.log(items);
 			handleDroppable(); // color background accordingly
-		}
+		},
+		out: function(event,ui) {
+			console.log("out event",event);
+			console.log("out ui",ui);
+			console.log("out dragged:", ui.draggable.context.id);
+			var index = items.indexOf(ui.draggable.context.id);
+			items.splice(index,1);
+			console.log(items);
+			handleDroppable(); // color background accordingly
+		},
 	});
 
 	$('.image').draggable({
@@ -40,10 +50,10 @@ $(document).ready(function() {
 			$("#laboratory").droppable("enable");
 			$("#laboratory").css('background-color','#B6F9B6');
 		} else {
-			$("#laboratory").droppable("disable");
+			//$("#laboratory").droppable("disable");
 			$("#laboratory").css('background-color','#C0C0C0');
 		}
-		handleImageReverts();
+		//handleImageReverts();
 	}
 
 	function isInDropZone(idName) {
@@ -59,6 +69,7 @@ $(document).ready(function() {
 	 * STEPH-ONLY NOTES: this is O(n*k), where k = max number of items allowable in drop zone.
 	 * How can this be improved?
 	 */
+			/*
 	function handleImageReverts() {
 		var imageList = $('.image');
 		for(var i = 0; i < imageList.length; i++) {
@@ -66,14 +77,13 @@ $(document).ready(function() {
 				console.log($(imageList[i]).attr('id'));
 				$(imageList[i]).draggable( "option", "revert", false );
 			} 
-			/*
 			else {
 				$(imageList[i]).draggable( "option", "revert", "invalid" );
 			}
-			*/
 		}		
 	}
 
+			*/
 	/*
 	 * TODO:
 	 *** How to allow images to be moved out? -> class manipulation?
