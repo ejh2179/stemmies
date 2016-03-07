@@ -1,13 +1,18 @@
 $(document).ready(function() {
 	var MAX_ITEMS = 3;
 	var itemCount = 0;
+	var items = [];
 
 	$('#laboratory').droppable({
 		accept: '.image', // specify as drop zone for immages
-		drop: function() {
-            itemCount++; // increase count of items in drop zone
+		drop: function(event,ui) {
+			console.log("event",event);
+			console.log("ui",ui);
+			console.log(ui.draggable.context.id);
+			items.push(ui.draggable.context.id);
+			$.unique(items);
+			console.log(items);
             handleDroppable(); // color background accordingly
-            console.log(itemCount);
         }
 	});
 
@@ -27,7 +32,7 @@ $(document).ready(function() {
 	});
 
 	function handleDroppable() {
-		if(itemCount < MAX_ITEMS) {
+		if(items.length < MAX_ITEMS) {
 			$("#laboratory").droppable("enable");
 			$("#laboratory").css('background-color','#B6F9B6');
 		} else {
