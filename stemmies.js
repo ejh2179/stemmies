@@ -67,6 +67,9 @@ $(document).ready(function() {
 	$('#playArea').droppable({
 		accept: '.image' // specify as drop zone for images
 	});
+	$('#imageBank').droppable({
+		accept: '.image' // specify as drop zone for images
+	});
 
 	/*
 	 * The target drop zone is more discerning than the sandbox.
