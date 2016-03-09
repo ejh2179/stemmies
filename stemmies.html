@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="stemmies.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="images.js"></script>
 	<script type="text/javascript" src="stemmies.js"></script>
 </head>
 <body>
@@ -45,11 +46,15 @@
 				</div>
 			</div>
 			<div class='col-md-12'>
-				<div id='playArea'>Sandbox</div>
+				<div id='playArea'><h4>Sandbox</h4>
+				<div id="playAreaSandbox"></div>
+				</div>
 			</div>
 			<div class='col-md-12'>
-				<div id='laboratory' class='open'>Laboratory [Max: 3 items]</div>
+				<div id='laboratory' class='open'>Laboratory [Max: 3 items]<br />
+				<div id="laboratorySandbox"></div></div>
 			</div>
+			<div class="col-md-12" id="errors"></div>
 			<div class='col-md-12'>
 				<button id='forumButton'>Forum</button>
 			</div>
